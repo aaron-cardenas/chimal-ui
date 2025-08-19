@@ -34,8 +34,36 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Disable S3 Block Public Access (bucket)
+        run: |
+          aws s3api put-public-access-block --bucket creditaria-chimal --public-access-block-configuration "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false"
+
+      - name: Ensure public-read bucket policy
+        run: |
+          cat > bucket-policy.json << 'EOF'
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "PublicReadGetObject",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::creditaria-chimal/*"
+              }
+            ]
+          }
+          EOF
+          aws s3api put-bucket-policy --bucket creditaria-chimal --policy file://bucket-policy.json
+
+
       - name: Sync to S3 (AWS CLI)
         run: aws s3 sync dist/chimal-ui/browser s3://creditaria-chimal --delete
+
+      - name: Set ACL public-read on uploaded objects
+        run: |
+          aws s3 sync dist/chimal-ui/browser s3://creditaria-chimal --delete --acl public-read
+
 
       - name: Invalidate CloudFront (AWS CLI)
         run: aws cloudfront create-invalidation --distribution-id EVOCES3Z59HEJ --paths "/*"
