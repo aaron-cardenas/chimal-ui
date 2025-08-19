@@ -19,14 +19,12 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          cache-dependency-path: chimal-ui/package.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: chimal-ui
         run: npm ci
 
       - name: Build Angular (prerender)
-        working-directory: chimal-ui
         run: npm run build
 
       - name: Configure AWS credentials
@@ -34,24 +32,24 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-1
 
       - name: Sync to S3
         uses: jakejarvis/s3-sync-action@v0.11.0
         with:
           args: --follow-symlinks --delete
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: chimal-ui/dist/chimal-ui/browser
+          AWS_S3_BUCKET: creditaria-chimal
+          AWS_REGION: us-east-1
+          SOURCE_DIR: dist/chimal-ui/browser
 
       - name: Invalidate CloudFront
         uses: awact/cloudfront-action@v1
         with:
-          distribution-id: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          distribution-id: EVOCES3Z59HEJ
           invalidation-path: "/*"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_REGION: us-east-1
 
