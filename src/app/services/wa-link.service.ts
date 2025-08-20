@@ -10,6 +10,12 @@ export class WaLinkService {
     @Inject(WA_DEFAULT_MESSAGE) private readonly defaultMessage: string
   ) { }
 
+  private replacePlaceholders(template: string, replacements: Record<string, string>): string {
+    return template.replace(/\[(UTM_SOURCE|UTM_CAMPAIGN|UTM_CONTENT|SEGMENT)\]/g, (_match, key) => {
+      return (replacements[key] ?? '').toString();
+    });
+  }
+
   buildLink(origin: string, extraParams?: Record<string, string>): string {
     const utm = {
       utm_source: 'site',
@@ -20,15 +26,27 @@ export class WaLinkService {
 
     const segment = (extraParams && extraParams['segment']) ? extraParams['segment'] : undefined;
 
-    // Mensaje con sustituciones explícitas en texto + UTM como query params
-    let msg = this.defaultMessage;
-    msg += ` UTM_SOURCE=${utm['utm_source']} UTM_CAMPAIGN=${utm['utm_campaign']} UTM_CONTENT=${utm['utm_content']}`;
-    if (segment) {
-      msg += ` SEGMENT=${segment}`;
+    // Intentar sustitución en el mensaje por defecto si usa placeholders
+    const replacements = {
+      UTM_SOURCE: utm['utm_source'] ?? '',
+      UTM_CAMPAIGN: utm['utm_campaign'] ?? '',
+      UTM_CONTENT: utm['utm_content'] ?? '',
+      SEGMENT: segment ?? ''
+    } as Record<string, string>;
+
+    let msg = this.replacePlaceholders(this.defaultMessage, replacements).trim();
+
+    // Si no hay placeholders en el mensaje, añadimos los datos al final
+    if (msg === this.defaultMessage.trim()) {
+      msg += ` UTM_SOURCE=${replacements['UTM_SOURCE']} UTM_CAMPAIGN=${replacements['UTM_CAMPAIGN']} UTM_CONTENT=${replacements['UTM_CONTENT']}`;
+      if (segment) {
+        msg += ` SEGMENT=${segment}`;
+      }
     }
 
     const url = new URL(`https://wa.me/${this.number}`);
     url.searchParams.set('text', msg);
+    // UTM y segmento también como parámetros de URL
     Object.entries(utm).forEach(([k, v]) => url.searchParams.set(k, v));
     if (segment) {
       url.searchParams.set('segment', segment);
