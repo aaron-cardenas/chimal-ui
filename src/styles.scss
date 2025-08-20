@@ -1,2 +1,32 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;800&display=swap');
 @import "primeicons/primeicons.css";
+
+:root {
+  --brand-primary: #0D1B2A; /* primario de marca */
+  --brand-graphite: #2E2E2E;
+  --brand-gold: #D4AF37;
+  --brand-white: #FFFFFF;
+  --brand-light-gray: #F7F7F7;
+  --wa-green: #25D366; /* exclusivo para botones WhatsApp */
+}
+
+.font-sans { font-family: 'Lato', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+.font-serif { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
+.btn { @apply rounded-lg px-6 py-3 text-white transition-colors duration-200; }
+.btn-brand { background-color: var(--brand-primary); }
+.btn-brand:hover { filter: brightness(1.1); }
+.btn-wa { background-color: var(--wa-green); }
+.btn-wa:hover { filter: brightness(0.95); }
+
+/* Botón contorno dorado (para CTAs de marca que enlazan a WA sin usar color WA) */
+.btn-outline-gold {
+  background-color: transparent;
+  color: var(--brand-gold);
+  border: 1px solid var(--brand-gold);
+}
+.btn-outline-gold:hover {
+  background-color: var(--brand-gold);
+  color: var(--brand-primary);
+}

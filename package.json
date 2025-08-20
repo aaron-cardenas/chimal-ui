@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "dev": "ng serve --c=development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:chimal-ui": "node dist/chimal-ui/server/server.mjs"
