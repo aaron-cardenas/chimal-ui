@@ -3,9 +3,9 @@
   @case ('hipotecario') {
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center" appReveal>
     <div>
-      <h2 class="text-3xl font-bold mb-4 text-white">Tu hogar, con el crédito correcto</h2>
-      <p class="text-white/90 mb-4">Comparamos más de 10 bancos y te acompañamos de principio a fin para lograr la mejor tasa y condiciones.</p>
-      <ul class="list-disc pl-5 space-y-2 mb-6 text-white/90">
+      <h2 class="text-3xl font-bold mb-4">Tu hogar, con el crédito correcto</h2>
+      <p class="text-gray-800 mb-4">Comparamos más de 10 bancos y te acompañamos de principio a fin para lograr la mejor tasa y condiciones.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-800">
         <li>Precalificación rápida por WhatsApp.</li>
         <li>Ahorro en intereses comparando +10 bancos.</li>
         <li>Acompañamiento total hasta la firma.</li>
@@ -13,12 +13,16 @@
       <a [href]="waLink('hipotecario')" (click)="onClickWa('hipotecario')" target="_blank" rel="noopener" class="btn btn-outline-gold">Precalifícame por WhatsApp (2 min)</a>
       <p class="text-xs text-white/70 mt-3">Miles de hipotecas gestionadas a nivel nacional.</p>
     </div>
+    <div class="mt-2 h-1 w-16 bg-[var(--brand-gold)]"></div>
+
     <img src="/casa-interior.webp" alt="Hipotecario" class="rounded-lg shadow" loading="lazy" />
   </div>
   }
   @case ('vehiculos') {
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
     <div>
+      <div class="mt-2 h-1 w-16 bg-[var(--brand-gold)]"></div>
+
       <h2 class="text-3xl font-bold mb-4 text-white">Arrendamiento inteligente: liquidez y flexibilidad</h2>
       <p class="text-white/90 mb-4">Destacamos el arrendamiento como opción moderna y conveniente; el crédito sigue disponible si te conviene.</p>
       <div class="overflow-x-auto">
