@@ -51,10 +51,12 @@
     }
   </div>
 
-  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 md:hidden flex space-x-2">
+  <div class="absolute bottom-16 left-1/2 -translate-x-1/2 md:hidden flex space-x-2">
     @for (slide of slides; track slide.id; let i = $index) {
     <div class="w-2 h-2 rounded-full bg-white/50"></div>
     }
-    <!-- indicador mobile retirado -->
+  </div>
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 md:hidden">
+    <a href="#main" class="btn-outline-gold px-4 py-2 rounded-full">Ver más</a>
   </div>
 </section>
