@@ -2,15 +2,15 @@
   <!-- Desktop Accordion Slider -->
   <div class="hidden md:flex h-full w-full">
     @for (slide of slides; track slide.id; let i = $index) {
-    <div (click)="setActive(i)" class="relative h-full cursor-pointer overflow-hidden transition-all duration-700 ease-in-out"
+    <div (click)="setActive(i)" class="relative h-full cursor-pointer overflow-hidden transition-all duration-1000 ease-in-out"
       [ngClass]="{ 'flex-grow': activeIndex() === i, 'flex-grow-0 w-[120px] hover:w-[140px]': activeIndex() !== i }">
       <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[20000ms] ease-linear" [class.animate-kenburns]="activeIndex() === i"
         [style.backgroundImage]="'url(' + slide.imageUrl + ')'"></div>
-      <div class="absolute inset-0 transition-opacity duration-700" [ngClass]="activeIndex() === i ? 'bg-black/40' : 'bg-black/70 hover:bg-black/50'">
+      <div class="absolute inset-0 transition-opacity duration-1000" [ngClass]="activeIndex() === i ? 'bg-black/40' : 'bg-black/70 hover:bg-black/50'">
       </div>
 
       <!-- Collapsed Content -->
-      <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 delay-300" [class.opacity-0]="activeIndex() === i"
+      <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-1000" [class.opacity-0]="activeIndex() === i"
         [class.opacity-100]="activeIndex() !== i">
         <h2 class="font-serif text-3xl text-white uppercase transform rotate-180 writing-mode-vertical-rl whitespace-nowrap [text-shadow:_0_2px_4px_rgba(0,0,0,0.5)]">
           {{ slide.collapsedTitle }}
@@ -18,12 +18,12 @@
       </div>
 
       <!-- Expanded Content -->
-      <div class="relative w-[600px] max-w-full h-full p-12 lg:p-20 flex flex-col justify-end text-white transition-opacity duration-1000 delay-300"
-        [class.opacity-100]="activeIndex() === i" [class.opacity-0]="activeIndex() !== i" appReveal>
-        <div class="transform transition-all duration-1000 delay-300" [ngClass]="activeIndex() === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'">
-          <h1 class="font-serif text-5xl lg:text-7xl font-bold mb-4 [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">{{ slide.title }}</h1>
+      <div class="relative w-[600px] max-w-full h-full p-12 lg:p-20 flex flex-col justify-end text-white transition-opacity duration-1000" [class.opacity-100]="activeIndex() === i"
+        [class.opacity-0]="activeIndex() !== i" appReveal>
+        <div class="transform transition-all duration-1000" [ngClass]="activeIndex() === i ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'">
+          <h1 class="font-serif text-5xl lg:text-5xl font-bold mb-4 [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">{{ slide.title }}</h1>
           <p class="font-sans text-lg lg:text-xl max-w-md mb-2 [text-shadow:_0_1px_4px_rgba(0,0,0,0.7)]">{{ slide.subtitle }}</p>
-          <p class="text-sm opacity-90 mb-6">Asesoría sin costo • +10 opciones comparadas • Gestión integral del trámite</p>
+          <p class="text-sm opacity-90 mb-6">Asesoría sin costo • Multiples opciones comparadas • Gestión integral del trámite</p>
           <a [href]="waLink(slide.segment)" (click)="onClickWa(slide.segment)" class="font-sans btn-outline-gold px-8 py-3 rounded-full transition-colors duration-300 self-start">
             {{ slide.ctaText }}
           </a>
@@ -42,7 +42,7 @@
       <div class="relative h-full p-8 flex flex-col justify-end text-white">
         <h1 class="font-serif text-4xl font-bold mb-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">{{ slide.title }}</h1>
         <p class="font-sans text-base max-w-md mb-2 [text-shadow:_0_1px_4px_rgba(0,0,0,0.7)]">{{ slide.subtitle }}</p>
-        <p class="text-xs opacity-90 mb-4">Asesoría sin costo • +10 opciones comparadas • Gestión integral del trámite</p>
+        <p class="text-xs opacity-90 mb-4">Asesoría sin costo • Multiples opciones comparadas • Gestión integral del trámite</p>
         <a [href]="waLink(slide.segment)" class="font-sans btn-outline-gold px-6 py-2 rounded-full transition-colors duration-300 self-start">
           {{ slide.ctaText }}
         </a>

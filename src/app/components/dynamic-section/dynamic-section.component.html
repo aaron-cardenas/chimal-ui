@@ -4,119 +4,75 @@
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center" appReveal>
     <div>
       <h2 class="text-3xl font-bold mb-4">Tu hogar, con el crédito correcto</h2>
-      <p class="text-gray-800 mb-4">Comparamos más de 10 bancos y te acompañamos de principio a fin para lograr la mejor tasa y condiciones.</p>
-      <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-800">
+      <div class="mt-2 mb-6 h-1 w-16 bg-[var(--brand-gold)]"></div>
+      <p class="text-gray-100 mb-4">Comparamos más de 10 bancos y te acompañamos de principio a fin para lograr la mejor tasa y condiciones para tu perfil.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-100">
         <li>Precalificación rápida por WhatsApp.</li>
-        <li>Ahorro en intereses comparando +10 bancos.</li>
+        <li>Ahorro en intereses comparando Multiples bancos.</li>
         <li>Acompañamiento total hasta la firma.</li>
       </ul>
-      <a [href]="waLink('hipotecario')" (click)="onClickWa('hipotecario')" target="_blank" rel="noopener" class="btn btn-outline-gold">Precalifícame por WhatsApp (2 min)</a>
-      <p class="text-xs text-white/70 mt-3">Miles de hipotecas gestionadas a nivel nacional.</p>
+      <a [href]="waLink('hipotecario')" (click)="onClickWa('hipotecario')" target="_blank" rel="noopener" class="btn btn-outline-gold mb-4">Precalifícame por WhatsApp (2 min)</a>
+      <br>
+      <br>
+      <p class="text-s text-gray-100 pt-3">Miles de hipotecas gestionadas a nivel nacional.</p>
     </div>
-    <div class="mt-2 h-1 w-16 bg-[var(--brand-gold)]"></div>
+
 
     <img src="/casa-interior.webp" alt="Hipotecario" class="rounded-lg shadow" loading="lazy" />
   </div>
   }
   @case ('vehiculos') {
-  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center" appReveal>
     <div>
-      <div class="mt-2 h-1 w-16 bg-[var(--brand-gold)]"></div>
-
-      <h2 class="text-3xl font-bold mb-4 text-white">Arrendamiento inteligente: liquidez y flexibilidad</h2>
-      <p class="text-white/90 mb-4">Destacamos el arrendamiento como opción moderna y conveniente; el crédito sigue disponible si te conviene.</p>
-      <div class="overflow-x-auto">
-        <table class="table-auto w-full border text-sm">
-          <thead>
-            <tr class="bg-gray-50">
-              <th class="border p-2 text-left">Característica</th>
-              <th class="border p-2 text-left">Crédito Tradicional</th>
-              <th class="border p-2 text-left">Arrendamiento (Leasing)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border p-2">Inversión inicial</td>
-              <td class="border p-2">Enganche (20%-40%)</td>
-              <td class="border p-2">Depósito en garantía (reembolsable)</td>
-            </tr>
-            <tr>
-              <td class="border p-2">Propiedad</td>
-              <td class="border p-2">El auto es tuyo</td>
-              <td class="border p-2">Pagas por uso, con opción de compra según plan</td>
-            </tr>
-            <tr>
-              <td class="border p-2">Plazo típico</td>
-              <td class="border p-2">48–72 meses</td>
-              <td class="border p-2">24–36 (hasta 48)</td>
-            </tr>
-            <tr>
-              <td class="border p-2">Fiscal (PFAE/PM)</td>
-              <td class="border p-2">Limitado</td>
-              <td class="border p-2">Renta deducible según topes/reglas vigentes</td>
-            </tr>
-            <tr>
-              <td class="border p-2">Al finalizar</td>
-              <td class="border p-2">Te quedas el auto</td>
-              <td class="border p-2">Renuevas, devuelves o compras</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="rounded-lg p-4 border border-[var(--brand-gold)] bg-white/70" appReveal>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="rounded-lg p-4 border border-[var(--brand-gold)]/70 bg-black/30">
-            <h3 class="text-lg font-semibold text-[var(--brand-gold)] mb-1">Renta operativa</h3>
-            <p class="text-white/90 text-sm">Mantén liquidez y renueva tu flota periódicamente.</p>
-          </div>
-          <div class="rounded-lg p-4 border border-white/20 bg-black/30">
-            <h3 class="text-lg font-semibold text-white mb-1">Crédito tradicional</h3>
-            <p class="text-white/80 text-sm">El auto es tuyo desde el inicio; mayor inversión inicial.</p>
-          </div>
-        </div>
-
-        <div class="mt-4">
-          <a [href]="waLink('vehiculos')" (click)="onClickWa('vehiculos')" target="_blank" rel="noopener" class="btn btn-outline-gold w-fit">Quiero cotizar mi arrendamiento
-            (WhatsApp)</a>
-        </div>
-
-        <h3 class="text-xl font-semibold mb-2 text-[var(--brand-gold)]">Edición Premium</h3>
-        <p class="text-gray-700 mb-2">Acentos dorados e imagen de alto contraste para vehículos de lujo.</p>
-      </div>
-
-      <ul class="list-disc pl-5 text-sm text-gray-700">
-        <li>Socios de ejemplo: BitCar/Elite, TIP, Afirme/Hey Banco (sin logos hasta permisos)</li>
+      <h2 class="text-3xl font-bold mb-4">Arrendamiento inteligente: liquidez y flexibilidad</h2>
+      <div class="mt-2 mb-6 h-1 w-16 bg-[var(--brand-gold)]"></div>
+      <p class="text-gray-100 mb-4">El leasing es la forma moderna de estrenar lujo: <strong>liquidez</strong>, <strong>flexibilidad</strong> y conveniencia. Si el crédito te
+        conviene más, también lo gestionamos y comparamos por ti.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-100">
+        <li><strong>Depósito en garantía reembolsable</strong> en lugar de enganche (planes seleccionados).</li>
+        <li>Al finalizar: <strong>renueva</strong>, <strong>devuelve</strong> o <strong>compra</strong> según tu conveniencia.</li>
+        <li><strong>Posible ventaja fiscal</strong> para PFAE/PM según topes y reglas vigentes (consulta a tu contador).</li>
       </ul>
-
-      <p class="text-xs text-gray-500">La deducibilidad depende de tu régimen. Consulta a tu contador.</p>
-      <a [href]="waLink('vehiculos')" (click)="onClickWa('vehiculos')" target="_blank" rel="noopener" class="btn btn-outline-gold w-fit">Quiero que me coticen crédito y leasing por
-        WhatsApp</a>
+      <div class="flex flex-wrap gap-3 items-center">
+        <a [href]="waLink('vehiculos')" (click)="onClickWa('vehiculos')" target="_blank" rel="noopener" class="btn btn-outline-gold w-fit">Quiero conocer mis opciones</a>
+        <span class="text-s text-gray-100">¿Quieres comparar vs crédito? Te mostramos ambas opciones.</span>
+      </div>
+      <p class="text-xs text-gray-300 mt-3">Algunos de nuestros socios: BitCar/Elite, TIP, Afirme/Hey Banco y más.</p>
     </div>
+    <img src="/coche-vertical.webp" alt="Vehículos" class="rounded-lg shadow object-cover w-full h-full max-h-[560px]" loading="lazy" />
   </div>
   }
   @case ('pyme') {
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-    <div class="p-6 bg-white/90 rounded-lg shadow">
+    <div>
       <h2 class="text-3xl font-bold mb-4">Financiamiento que entiende tu flujo</h2>
-      <p class="text-gray-800 mb-4">Si tu banco no te da velocidad, buscamos a quien sí. Respuesta en días, no semanas.</p>
-      <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-800">
+      <div class="mt-2 mb-6 h-1 w-16 bg-[var(--brand-gold)]"></div>
+      <p class="text-gray-100 mb-4">Si tu banco no te da velocidad, buscamos quien sí. Respuesta en agil y condiciones optimas.</p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-100">
         <li>Capital y activos: crédito simple o revolvente; arrendamiento financiero.</li>
         <li>Flexibilidad de garantías: prendaria/hipotecaria según caso.</li>
-        <li>Especialistas en transporte y maquinaria.</li>
+        <li>Aliados especialistas en transporte y maquinaria.</li>
       </ul>
-      <a [href]="waLink('pyme')" (click)="onClickWa('pyme')" target="_blank" rel="noopener" class="btn btn-outline-gold">Necesito respuesta rápida para mi PyME (WhatsApp)</a>
+      <a [href]="waLink('pyme')" (click)="onClickWa('pyme')" target="_blank" rel="noopener" class="btn btn-outline-gold">Necesito respuesta rápida para mi PyME</a>
     </div>
     <img src="/oficina-2.webp" alt="PyME" class="rounded-lg shadow" loading="lazy" />
   </div>
   }
   @default {
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-6">¿Qué necesitas hoy?</h2>
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-center mb-2">¿Qué necesitas hoy?</h2>
+    <p class="text-gray-700 mb-4">Dinos qué buscas y te llevamos directo al financiamiento ideal. Sin vueltas, sin costo.</p>
+    <ul class="text-gray-800 list-disc pl-5 text-left max-w-3xl mx-auto mb-6">
+      <li>Menos trámites, más resultados.</li>
+      <li>Opciones claras y comparadas para tu perfil.</li>
+      <li>Acompañamiento experto hasta la aprobación.</li>
+    </ul>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <button type="button" class="btn btn-outline-gold text-center" (click)="pickSegment('hipotecario')">Hipotecario</button>
       <button type="button" class="btn btn-outline-gold text-center" (click)="pickSegment('vehiculos')">Vehículos</button>
       <button type="button" class="btn btn-outline-gold text-center" (click)="pickSegment('pyme')">PyME</button>
     </div>
+    <p class="text-xs opacity-80 mt-4">Asesoría sin costo • Multiples opciones comparadas • Gestión integral del trámite</p>
   </div>
   }
   }
