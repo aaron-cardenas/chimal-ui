@@ -16,6 +16,23 @@ export class WaLinkService {
     });
   }
 
+  private resolveMessageTemplate(segment?: string): string {
+    // Mensajes específicos por segmento; si no hay segmento, usar el mensaje por defecto
+    const seg = (segment ?? '').trim().toLowerCase();
+    if (!seg) return this.defaultMessage.trim();
+
+    switch (seg) {
+      case 'hipotecario':
+        return 'Hola, me interesa una asesoría hipotecaria. ¿Me pueden orientar?';
+      case 'vehiculos':
+        return 'Hola, me interesa financiamiento o arrendamiento de vehículos. ¿Me pueden orientar?';
+      case 'pyme':
+        return 'Hola, me interesan opciones de crédito o arrendamiento para mi PyME. ¿Me pueden orientar?';
+      default:
+        return this.defaultMessage.trim();
+    }
+  }
+
   buildLink(origin: string, extraParams?: Record<string, string>): string {
     const utm = {
       utm_source: 'site',
@@ -26,7 +43,8 @@ export class WaLinkService {
 
     const segment = (extraParams && extraParams['segment']) ? extraParams['segment'] : undefined;
 
-    // Intentar sustitución en el mensaje por defecto si usa placeholders
+    // Construir mensaje basado en origen/segmento y aplicar placeholders si existen
+    const template = this.resolveMessageTemplate(segment);
     const replacements = {
       UTM_SOURCE: utm['utm_source'] ?? '',
       UTM_CAMPAIGN: utm['utm_campaign'] ?? '',
@@ -34,19 +52,11 @@ export class WaLinkService {
       SEGMENT: segment ?? ''
     } as Record<string, string>;
 
-    let msg = this.replacePlaceholders(this.defaultMessage, replacements).trim();
-
-    // Si no hay placeholders en el mensaje, añadimos los datos al final
-    if (msg === this.defaultMessage.trim()) {
-      msg += ` UTM_SOURCE=${replacements['UTM_SOURCE']} UTM_CAMPAIGN=${replacements['UTM_CAMPAIGN']} UTM_CONTENT=${replacements['UTM_CONTENT']}`;
-      if (segment) {
-        msg += ` SEGMENT=${segment}`;
-      }
-    }
+    const msg = this.replacePlaceholders(template, replacements).trim();
 
     const url = new URL(`https://wa.me/${this.number}`);
     url.searchParams.set('text', msg);
-    // UTM y segmento también como parámetros de URL
+    // UTM y segmento como parámetros de URL (no dentro del texto)
     Object.entries(utm).forEach(([k, v]) => url.searchParams.set(k, v));
     if (segment) {
       url.searchParams.set('segment', segment);

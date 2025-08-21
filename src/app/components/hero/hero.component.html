@@ -24,7 +24,8 @@
           <h1 class="font-serif text-5xl lg:text-5xl font-bold mb-4 [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">{{ slide.title }}</h1>
           <p class="font-sans text-lg lg:text-xl max-w-md mb-2 [text-shadow:_0_1px_4px_rgba(0,0,0,0.7)]">{{ slide.subtitle }}</p>
           <p class="text-sm opacity-90 mb-6">Asesoría sin costo • Multiples opciones comparadas • Gestión integral del trámite</p>
-          <a [href]="waLink(slide.segment)" (click)="onClickWa(slide.segment)" class="font-sans btn-outline-gold px-8 py-3 rounded-full transition-colors duration-300 self-start">
+          <a [href]="waLink(slide.segment)" (click)="onClickWa(slide.segment)" target="_blank" rel="noopener"
+            class="font-sans btn-outline-gold px-8 py-3 rounded-full transition-colors duration-300 self-start">
             {{ slide.ctaText }}
           </a>
         </div>
@@ -43,7 +44,7 @@
         <h1 class="font-serif text-4xl font-bold mb-3 [text-shadow:_0_2px_8px_rgba(0,0,0,0.7)]">{{ slide.title }}</h1>
         <p class="font-sans text-base max-w-md mb-2 [text-shadow:_0_1px_4px_rgba(0,0,0,0.7)]">{{ slide.subtitle }}</p>
         <p class="text-xs opacity-90 mb-4">Asesoría sin costo • Multiples opciones comparadas • Gestión integral del trámite</p>
-        <a [href]="waLink(slide.segment)" class="font-sans btn-outline-gold px-6 py-2 rounded-full transition-colors duration-300 self-start">
+        <a [href]="waLink(slide.segment)" target="_blank" rel="noopener" class="font-sans btn-outline-gold px-6 py-2 rounded-full transition-colors duration-300 self-start">
           {{ slide.ctaText }}
         </a>
       </div>
